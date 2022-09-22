@@ -145,7 +145,8 @@ print("""1. impulse
 4. tri() 
 5. bipolar()
 6. pulse()
-7. cosine()""")
+7. cosine()
+8. Exit""")
 
 a=1
 
