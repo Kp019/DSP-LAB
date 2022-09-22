@@ -80,7 +80,7 @@ plt.show()
 '''
 
 #bipolar pulse or square wave
-'''
+
 n = range(-10,10,1)
 y = []
 i=0
@@ -99,5 +99,3 @@ print(n)
 print(y)
 plt.step(n,y)
 plt.show()
-
-'''
