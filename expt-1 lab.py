@@ -82,7 +82,7 @@ def tri():
     plt.ylabel("amplitude")
     plt.title("triangular signal")
     plt.axis([-5,5,0,2])
-    
+
 def bipolar():
     n = range(-10,10,1)
     y = []
@@ -136,6 +136,25 @@ def cosine():
     plt.plot(t,x,'-b')
     plt.show()
 
+def tri2():
+    n = range(0,100,1)
+    y= []
+
+    for i in range(len(x)):
+        r = x[i]%100
+        if r <50:
+            temp = r
+        else:
+            temp = 100-r
+        y.append(temp)
+        
+    plt.plot(x,y)
+    plt.axis([0,500,0,51])
+    plt.xlabel("n--->")
+    plt.ylabel("amplitude")
+    plt.title("Triangular pulse")
+    plt.grid()
+    plt.show()
 
 print("""1. impulse 
 2. step() 
@@ -144,7 +163,8 @@ print("""1. impulse
 5. bipolar()
 6. pulse()
 7. cosine()
-8. Exit""")
+8. tri2()
+9. Exit""")
 
 a=1
 
@@ -165,6 +185,8 @@ while( a == 1):
     elif j == 7:
         cosine()
     elif j == 8:
-        a = 0
+        tri2()
+    elif j == 9:
+        a=0
     else:
         print("enter the valid number")
