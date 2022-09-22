@@ -2,7 +2,6 @@ from tempfile import tempdir
 import numpy as np
 import matplotlib.pyplot as plt
 
-#impulse signal
 def impulse():
     n=range(-5,5,1)
     y = []
@@ -140,15 +139,15 @@ def tri2():
     n = range(0,100,1)
     y= []
 
-    for i in range(len(x)):
-        r = x[i]%100
+    for i in range(len(n)):
+        r = n[i]%100
         if r <50:
             temp = r
         else:
             temp = 100-r
         y.append(temp)
         
-    plt.plot(x,y)
+    plt.plot(n,y)
     plt.axis([0,500,0,51])
     plt.xlabel("n--->")
     plt.ylabel("amplitude")
