@@ -82,9 +82,7 @@ def tri():
     plt.ylabel("amplitude")
     plt.title("triangular signal")
     plt.axis([-5,5,0,2])
-    plt.plot(n,y)
-    plt.show()
-
+    
 def bipolar():
     n = range(-10,10,1)
     y = []
