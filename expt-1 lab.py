@@ -19,7 +19,7 @@ def impulse():
     plt.xlabel("time")
     plt.ylabel("amplitude")
     plt.axis([-5,5,0,2])
-    plt.title("impulse")
+    plt.title("impulse 33")
     plt.show()
 
 def step():
@@ -38,7 +38,7 @@ def step():
     print(y)
     plt.xlabel("time")
     plt.ylabel("amplitude")
-    plt.title("step signal")
+    plt.title("step signal 33")
     
     plt.axis([-2,10,0,2])
     plt.stem(n,y)
@@ -61,7 +61,7 @@ def ramp():
     
     plt.xlabel("time")
     plt.ylabel("amplitude")
-    plt.title("ramp signal")    
+    plt.title("ramp signal 33")    
     plt.axis([-2,10,0,10])
     plt.plot(n,y)
     plt.show()
@@ -77,10 +77,12 @@ def tri():
         y.append(temp)
     print(n)
     print(y)
+    plt.plot(n,y)
     plt.xlabel("time")
     plt.ylabel("amplitude")
-    plt.title("triangular signal")
+    plt.title("triangular signal 33")
     plt.axis([-5,5,0,2])
+    plt.show()
 
 def bipolar():
     n = range(-10,10,1)
@@ -99,7 +101,7 @@ def bipolar():
     print(y)
     plt.xlabel("time")
     plt.ylabel("amplitude")
-    plt.title("bipolar signal")
+    plt.title("bipolar signal 33")
     plt.axis([-10,10,-2,2])
     plt.step(n,y)
     plt.show()
@@ -117,7 +119,7 @@ def pulse():
     print(y)
     plt.xlabel("time")
     plt.ylabel("amplitude")
-    plt.title("pulse signal")
+    plt.title("pulse signal 33")
     plt.axis([-5,5,0,2])
     plt.step(n,y)
     plt.show()
@@ -130,7 +132,7 @@ def cosine():
     
     plt.xlabel("time")
     plt.ylabel("time")
-    plt.title("cosine signal")
+    plt.title("cosine signal 33")
     plt.grid()
     plt.plot(t,x,'-b')
     plt.show()
@@ -151,7 +153,7 @@ def tri2():
     plt.axis([0,500,0,51])
     plt.xlabel("n--->")
     plt.ylabel("amplitude")
-    plt.title("Triangular pulse")
+    plt.title("Triangular pulse 33")
     plt.grid()
     plt.show()
 
