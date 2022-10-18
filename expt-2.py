@@ -6,30 +6,53 @@ import matplotlib.pyplot as plt
 '''part - A
 *******************************************************************************************************'''
 
+from re import I
+from matplotlib.cbook import flatten
+import numpy as np
+import matplotlib.pyplot as plt
+import time
 
-'''
 N = 4
-j = complex(0,-1)
-w = cmath.exp(j*2*cmath.pi/N)
-j,k= np.meshgrid(np.arange ( N ),np.arange( N ))
-dft = np.power(w,j*k)
-dft = np.real(dft)
-plt.imshow(dft)
+
+
+def disp(x):
+    with np.printoptions(precision=2, suppress=True):
+        print(x)
+
+
+x = np.array([[1],
+              [2],
+              [3],
+              [4]])
+
+j = complex(0, 1)
+
+# dft
+row = np.array([np.arange(4)])
+col = row.T
+f = col@row
+print(f)
+
+j = complex(0, 1)
+dft_matrix = np.exp(-j * 2*np.pi*f/N)
+disp(dft_matrix)
+
+y = dft_matrix@x
+disp(y)
+
+
+# fft
+fft1 = np.fft.fft(x.flatten())
+disp(fft1)
+plt.stem(np.abs(y.flatten()-fft1))
+plt.ylim([-0.5, 0.5])
 plt.show()
 
-x = [1,1,0,0] #random i/p matrix
 
-#loop for finding DFT
+value = np.arange(2, 12+1, 1)
 
-for i in range(N):
-    l = 0
-    y = 0
-    while l < N:
-        y = y + x[l] + w**l*i
-        l = l+1
-    print(y,",")
-
-'''
+for v in value:
+    n = 2**v
 
 
 #part - B
@@ -108,7 +131,7 @@ if __name__ == '__main__':
 
 '''Part - c
 ***************************************************************************************************'''
-
+'''
 
 pi = np.pi
 
@@ -130,3 +153,4 @@ print(parceval)
 plt.plot(freqs, fouriery, 'b-')
 plt.xlim(0, 3)
 plt.show()
+'''
