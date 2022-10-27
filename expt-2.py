@@ -21,7 +21,7 @@ j = complex(0, 1)
 
 
 def gendft(N):
-    row = np.array([np.arange(4)])
+    row = np.array([np.arange(N)])
     col = row.T
     f = col@row
     print(f)
@@ -53,7 +53,7 @@ idx = 0
 
 for v in value:
     n = 2**v
-    col_data = np.random.rand(N, 1)
+    col_data = np.random.rand(n, 1)
     y = gendft(n)
     start_time = time.perf_counter()
     fft_frm_dftmtx = y@col_data
@@ -61,13 +61,18 @@ for v in value:
     dft_mtx_time[idx] = end_time - start_time
 
     start_time = time.perf_counter()
-    fft_frm_dftmtx = y@col_data
+    fft_frm_dftmtx = np.fft.fft(col_data.flatten())
     end_time = time.perf_counter()
     fft_routine_time[idx] = end_time - start_time
     idx = idx+1
     fft_routine_time
 
 plt.plot(value, dft_mtx_time, 'r', value, fft_routine_time, 'k')
+plt.legend(["dft matrix fft", "fft"])
+plt.title("time for dft via fft method and dft matrix method")
+plt.xlabel("value")
+plt.ylabel("time")
+
 plt.show()
 
 # circular Convolution
