@@ -2,29 +2,31 @@ from tempfile import tempdir
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def impulse():
-    n=range(-5,5,1)
+    n = range(-5, 5, 1)
     y = []
 
-    for i in range( len(n)):
+    for i in range(len(n)):
         if n[i] == 0:
             temp = 1
         else:
             temp = 0
-            
+
         y.append(temp)
     print(n)
     print(y)
-    plt.stem(n,y)
+    plt.stem(n, y)
     plt.xlabel("time")
     plt.ylabel("amplitude")
-    plt.axis([-5,5,0,2])
-    plt.title("impulse 33")
+    plt.axis([-5, 5, 0, 2])
+    plt.title("impulse 30")
     plt.show()
 
+
 def step():
-        
-    n = range(-2,10,1)
+
+    n = range(-2, 10, 1)
     y = []
 
     for i in range(len(n)):
@@ -38,19 +40,19 @@ def step():
     print(y)
     plt.xlabel("time")
     plt.ylabel("amplitude")
-    plt.title("step signal 33")
-    
-    plt.axis([-2,10,0,2])
-    plt.stem(n,y)
+    plt.title("step signal 30")
+
+    plt.axis([-2, 10, 0, 2])
+    plt.stem(n, y)
     plt.show()
 
 
 def ramp():
-    n = range(-2,10,1)
+    n = range(-2, 10, 1)
     y = []
 
     for i in range(len(n)):
-        if n[i] > 0 :
+        if n[i] > 0:
             temp = temp + 1
         else:
             temp = 0
@@ -58,40 +60,42 @@ def ramp():
 
     print(n)
     print(y)
-    
+
     plt.xlabel("time")
     plt.ylabel("amplitude")
-    plt.title("ramp signal 33")    
-    plt.axis([-2,10,0,10])
-    plt.plot(n,y)
+    plt.title("ramp signal 30")
+    plt.axis([-2, 10, 0, 10])
+    plt.plot(n, y)
     plt.show()
 
+
 def tri():
-    n = range(-5,5,1)
+    n = range(-5, 5, 1)
     y = []
     for i in range(len(n)):
-        if n[i]%2 == 0:
+        if n[i] % 2 == 0:
             temp = 1
         else:
             temp = 0
         y.append(temp)
     print(n)
     print(y)
-    plt.plot(n,y)
+    plt.plot(n, y)
     plt.xlabel("time")
     plt.ylabel("amplitude")
-    plt.title("triangular signal 33")
-    plt.axis([-5,5,0,2])
+    plt.title("triangular signal 30")
+    plt.axis([-5, 5, 0, 2])
     plt.show()
 
+
 def bipolar():
-    n = range(-10,10,1)
+    n = range(-10, 10, 1)
     y = []
-    i=0
+    i = 0
     t = len(n)
 
-    while i < t:    
-        if n[i] %2 == 0:
+    while i < t:
+        if n[i] % 2 == 0:
             temp = 1
         else:
             temp = -1
@@ -101,13 +105,14 @@ def bipolar():
     print(y)
     plt.xlabel("time")
     plt.ylabel("amplitude")
-    plt.title("bipolar signal 33")
-    plt.axis([-10,10,-2,2])
-    plt.step(n,y)
+    plt.title("bipolar signal 30")
+    plt.axis([-10, 10, -2, 2])
+    plt.step(n, y)
     plt.show()
-    
+
+
 def pulse():
-    n = range(-5,5,1)
+    n = range(-5, 5, 1)
     y = []
     for i in range(len(n)):
         if abs(n[i]) < 2:
@@ -119,43 +124,46 @@ def pulse():
     print(y)
     plt.xlabel("time")
     plt.ylabel("amplitude")
-    plt.title("pulse signal 33")
-    plt.axis([-5,5,0,2])
-    plt.step(n,y)
+    plt.title("pulse signal 30")
+    plt.axis([-5, 5, 0, 2])
+    plt.step(n, y)
     plt.show()
 
+
 def cosine():
-    t = np.linspace(0,1,1000)
+    t = np.linspace(0, 1, 1000)
     A = 2
     f = 5
     x = A * np.cos(2*np.pi*f*t)
-    
+
     plt.xlabel("time")
     plt.ylabel("time")
-    plt.title("cosine signal 33")
+    plt.title("cosine signal 30")
     plt.grid()
-    plt.plot(t,x,'-b')
+    plt.plot(t, x, '-b')
     plt.show()
 
+
 def tri2():
-    n = range(0,100,1)
-    y= []
+    n = range(0, 100, 1)
+    y = []
 
     for i in range(len(n)):
-        r = n[i]%100
-        if r <50:
+        r = n[i] % 100
+        if r < 50:
             temp = r
         else:
             temp = 100-r
         y.append(temp)
-        
-    plt.plot(n,y)
-    plt.axis([0,500,0,51])
+
+    plt.plot(n, y)
+    plt.axis([0, 500, 0, 51])
     plt.xlabel("n--->")
     plt.ylabel("amplitude")
-    plt.title("Triangular pulse 33")
+    plt.title("Triangular pulse 30")
     plt.grid()
     plt.show()
+
 
 print("""1. impulse 
 2. step() 
@@ -167,9 +175,9 @@ print("""1. impulse
 8. tri2()
 9. Exit""")
 
-a=1
+a = 1
 
-while( a == 1):
+while (a == 1):
     j = int(input("enter the number"))
     if j == 1:
         impulse()
@@ -188,6 +196,6 @@ while( a == 1):
     elif j == 8:
         tri2()
     elif j == 9:
-        a=0
+        a = 0
     else:
         print("enter the valid number")
