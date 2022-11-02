@@ -10,10 +10,7 @@ def disp(x):
         print(x)
 
 
-x = np.array([[1],
-              [2],
-              [3],
-              [4]])
+
 
 j = complex(0, 1)
 
@@ -33,9 +30,16 @@ def gendft(N):
 
 
 N = 4
+x = np.random.rand(N,1)
 dft_matrix = gendft(N)
+plt.matshow(np.real(dft_matrix))
+plt.title("real part of dft matrix (33)")
+plt.matshow(np.imag(dft_matrix))
+plt.title("imaginary part of dft matrix (33)")
+plt.show()
 y = dft_matrix@x
 disp(y)
+
 
 
 # fft
@@ -43,6 +47,7 @@ fft1 = np.fft.fft(x.flatten())
 disp(fft1)
 plt.stem(np.abs(y.flatten()-fft1))
 plt.ylim([-0.5, 0.5])
+plt.title("error b/w FFTs computed via DFT matrix & FFT matrix(33)")
 plt.show()
 
 
@@ -69,7 +74,7 @@ for v in value:
 
 plt.plot(value, dft_mtx_time, 'r', value, fft_routine_time, 'k')
 plt.legend(["dft matrix fft", "fft"])
-plt.title("time for dft via fft method and dft matrix method")
+plt.title("time for dft via fft method and dft matrix method (35)")
 plt.xlabel("value")
 plt.ylabel("time")
 
@@ -92,15 +97,15 @@ print(x2)
 print(yc)
 plt.subplot(3, 3, 1)
 plt.stem(x1)
-plt.title("sequance 1")
+plt.title("sequance 1 (33)")
 
 plt.subplot(3, 3, 2)
 plt.stem(x2)
-plt.title("sequance 2")
+plt.title("sequance 2 (33)")
 
 plt.subplot(3, 3, 3)
 plt.stem(yc)
-plt.title("Circular Convolution")
+plt.title("Circular Convolution (33)")
 plt.tight_layout()
 plt.show()
 
